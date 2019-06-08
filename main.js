@@ -346,6 +346,16 @@ var NavbarComponent = /** @class */ (function () {
                 document.querySelector('.section-left').className.replace(/\so\-hidden/, '');
         }
     };
+    NavbarComponent.prototype.ngOnDestroy = function () {
+        if (this.ordersOpened || this.menuOpened) {
+            if (document.querySelector('.section-left')) {
+                document.querySelector('.section-left').className =
+                    document.querySelector('.section-left').className.replace(/\so\-hidden/, '');
+            }
+            document.querySelector('body').className = '';
+            document.querySelector('html').className = '';
+        }
+    };
     NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-navbar',
